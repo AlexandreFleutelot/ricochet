@@ -10,7 +10,6 @@ class Solver():
         self.color_to_index = {color: index for index, color in enumerate(self.board.robots.keys())}
 
     def bfs(self, start, end):
-        """Compute the shortest distance between start and end points on the board avoiding walls and other robots."""
         
         if start ==end:
             return 0
@@ -47,6 +46,7 @@ class Solver():
         return float('inf')
 
     def _heuristic(self, robots, targets):
+        
         tot = 0
         for t_col, t_pos in targets.items():
                 r_pos = robots[t_col]
@@ -54,9 +54,11 @@ class Solver():
         return tot
     
     def _state_to_tuple(self, robots):
+
         return tuple(robots.get(color, (-1, -1)) for color in self.color_to_index)
 
     def _get_next_states(self, robots):
+                
         next_states = []
         for color, (x, y) in robots.items():
             for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
@@ -78,8 +80,7 @@ class Solver():
         return next_states
 
     def solve(self, max_depth=20):
-        """Solves the game using the A* algorithm with BFS heuristic for pruning."""
-        
+      
         # Use a counter to break ties and avoid comparing dictionaries
         counter = itertools.count()
 

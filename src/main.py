@@ -7,10 +7,11 @@ from constants import WIDTH, HEIGHT
 
 pygame.init()
 
-screen = pygame.display.set_mode((WIDTH, HEIGHT + 50))  # Increased height for toolbar
+screen = pygame.display.set_mode((WIDTH, HEIGHT + 50))
 pygame.display.set_caption("Ricochet Robot")
 
 def main_menu():
+
     menu = True
     while menu:
         screen.fill((255, 255, 255))

@@ -5,6 +5,7 @@ from solver import Solver
 from constants import Color
 
 class Game():
+        
     def __init__(self, screen):
         self.screen = screen
         self.board = Board(n_rows=12, n_cols=12)
